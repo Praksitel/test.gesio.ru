@@ -22,8 +22,11 @@ To learn more, you can browse through the documentation
 <%= link_to 'here' => '/perldoc' %>.
 
 @@ layouts/default.html.ep
-<!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
-</html>
+<head></head>
+<body>
+<h1>Test app</h1>
+<div>Mode: <span id="appmode"></span></div>
+<div>Value: <span id="appvalue"></span></div>
+</body>
+<html>
