@@ -11,7 +11,7 @@ my $config = plugin Config => {file => './myapp.conf'};
 
 get '/' => sub {
   my $c = shift;
-
+  print $config->{appmode};
   $c->stash(appmode => $config->{appmode});
   $c->render(template => 'index');
 };
