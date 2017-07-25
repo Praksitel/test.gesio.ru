@@ -4,14 +4,20 @@ use warnings FATAL => 'all';
 use Mojolicious::Lite;
 use Mojolicious::Plugin::Config;
 
+use Mojo::Redis2;
+
 # Documentation browser under "/perldoc"
 #plugin 'PODRenderer';
 
+my $redis = Mojo::Redis2->new;
 my $config = plugin Config => {file => './myapp.conf'};
+
+my $appvalue = 0;
+
+my $res = $redis->set(appvalue => $appvalue);
 
 get '/' => sub {
   my $c = shift;
-  print $config->{appmode};
   $c->stash(appmode => $config->{appmode});
   $c->render(template => 'index');
 };
