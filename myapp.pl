@@ -2,9 +2,12 @@
 use strict;
 use warnings FATAL => 'all';
 use Mojolicious::Lite;
+use Mojolicious::Plugin::Config;
 
 # Documentation browser under "/perldoc"
 #plugin 'PODRenderer';
+
+my $config = app->plugin('Config');
 
 get '/' => sub {
   my $c = shift;
