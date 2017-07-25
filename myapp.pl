@@ -26,7 +26,7 @@ __DATA__
 <head></head>
 <body>
 <h1>Test app</h1>
-<div>Mode: <span id="appmode"><%= appmode %></span></div>
+<div>Mode: <span id="appmode"><%= $appmode %></span></div>
 <div>Value: <span id="appvalue"></span></div>
 </body>
 <html>
