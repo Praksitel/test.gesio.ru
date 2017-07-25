@@ -11,6 +11,8 @@ my $config = plugin Config => {file => './myapp.conf'};
 
 get '/' => sub {
   my $c = shift;
+
+  $c->stash(appmode => $config->{appmode});
   $c->render(template => 'index');
 };
 
@@ -24,7 +26,7 @@ __DATA__
 <head></head>
 <body>
 <h1>Test app</h1>
-<div>Mode: <span id="appmode"></span></div>
+<div>Mode: <span id="appmode"><%= appmode %></span></div>
 <div>Value: <span id="appvalue"></span></div>
 </body>
 <html>
