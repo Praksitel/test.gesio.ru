@@ -7,7 +7,7 @@ use Mojolicious::Plugin::Config;
 # Documentation browser under "/perldoc"
 #plugin 'PODRenderer';
 
-my $config = app->plugin('Config');
+my $config = plugin Config => {file => './myapp.conf'};
 
 get '/' => sub {
   my $c = shift;
