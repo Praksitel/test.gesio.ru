@@ -17,6 +17,7 @@ my $res = $redis->set('appvalue' => $appvalue);
 
 get '/' => sub {
   my $c = shift;
+      $c->stach(res => $res);
   $c->stash(appmode => $config->{appmode});
   $c->stash(appvalue => $redis->get('appvalue'));
   $c->render(template => 'index');
@@ -32,7 +33,8 @@ __DATA__
 <head></head>
 <body>
 <h1>Test app</h1>
+<div>Redis res: <span id="res"><%= $res %></span></div>
 <div>Mode: <span id="appmode"><%= $appmode %></span></div>
-<div>Value: <span id="appvalue"></span></div>
+<div>Value: <span id="appvalue"><%= $appvalue %></span></div>
 </body>
 <html>
