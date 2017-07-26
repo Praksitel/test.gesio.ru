@@ -13,12 +13,12 @@ my $redis = Redis->new;
 my $config = plugin Config => {file => './myapp.conf'};
 
 my $appvalue = 0;
-
-my $res = $redis->set(appvalue => $appvalue);
+my $res = $redis->set('appvalue' => $appvalue);
 
 get '/' => sub {
   my $c = shift;
   $c->stash(appmode => $config->{appmode});
+  $c->stash(appvalue => $redis->get{'appvalue'});
   $c->render(template => 'index');
 };
 
