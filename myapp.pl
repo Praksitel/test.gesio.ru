@@ -17,7 +17,7 @@ my $res = $redis->set('appvalue' => $appvalue);
 
 get '/' => sub {
   my $c = shift;
-      $c->stach(res => $res);
+  $c->stash(res => $res);
   $c->stash(appmode => $config->{appmode});
   $c->stash(appvalue => $redis->get('appvalue'));
   $c->render(template => 'index');
