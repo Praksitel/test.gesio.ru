@@ -9,7 +9,7 @@ use Redis;
 # Documentation browser under "/perldoc"
 #plugin 'PODRenderer';
 
-my $redis = Mojo::Redis2->new;
+my $redis = Redis->new;
 my $config = plugin Config => {file => './myapp.conf'};
 
 my $appvalue = 0;
