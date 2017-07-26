@@ -4,7 +4,7 @@ use warnings FATAL => 'all';
 use Mojolicious::Lite;
 use Mojolicious::Plugin::Config;
 
-use Mojo::Redis2;
+use Redis;
 
 # Documentation browser under "/perldoc"
 #plugin 'PODRenderer';
