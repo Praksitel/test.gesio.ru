@@ -29,6 +29,12 @@ post 'set/:appvalue' => sub {
   $res = $redis->set('appvalue' => $appvalue);
 };
 
+get '/get' => sub {
+  my $c = shift;
+  $appvalue => $redis->get('appvalue');
+  $c->render(json => {appvalue => $appvalue});
+};
+
 app->start;
 __DATA__
 
