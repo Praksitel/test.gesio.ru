@@ -31,7 +31,7 @@ post 'set/:appvalue' => sub {
 
 get '/get' => sub {
   my $c = shift;
-  $appvalue => $redis->get('appvalue');
+  $appvalue = $redis->get('appvalue');
   $c->render(json => {appvalue => $appvalue});
 };
 
