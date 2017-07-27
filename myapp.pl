@@ -25,9 +25,9 @@ get '/' => sub {
 
 post '/set/:appvalue' => sub {
   my $c = shift;
-  $appvalue = $c->stash('appvalue');
+  $appvalue = $c->param('appvalue');
   $res = $redis->set('appvalue' => $appvalue);
-  $c->render(status => 200);
+  $c->render(appvalue => $appvalue, status => 200);
 };
 
 get '/get' => sub {
