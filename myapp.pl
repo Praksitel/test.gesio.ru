@@ -23,6 +23,10 @@ get '/' => sub {
   $c->render(template => 'index');
 };
 
+post 'set/:appvalue' => {
+
+};
+
 app->start;
 __DATA__
 
@@ -30,7 +34,10 @@ __DATA__
 % layout 'default';
 @@ layouts/default.html.ep
 <html>
-<head></head>
+<head>
+  <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</head>
 <body>
 <h1>Test app</h1>
 <div>Redis res: <span id="res"><%= $res %></span></div>
