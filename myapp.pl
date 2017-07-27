@@ -67,7 +67,7 @@ __DATA__
                 cache: false
             }).done(function(time) {
                     var appvalue = time.appvalue;
-                    $("#appvalue").html = appvalue;
+                    $("#appvalue").innerHTML = appvalue;
                 });
         };
         setTimeout(getTime, 3000);
