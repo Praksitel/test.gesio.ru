@@ -52,14 +52,25 @@ __DATA__
     $( document ).ready(function() {
       refreshPage();
       function refreshPage() {
-          var appvalue = new Date().getTime();
-          $.ajax({
-              type:   "POST",
-              url:    'test.gesio.ru:8080/set/' + appvalue
-              });
+        var appvalue = new Date().getTime();
+        $.ajax({
+            type:   "POST",
+            url:    'test.gesio.ru:8080/set/' + appvalue
+        });
+        setTimeout(refreshPage, 1000);
 
-          setTimeout(refreshPage, 1000);
-      };
+        function getTime() {
+            $.ajax({
+                type:   "GET",
+                url:    'test.gesio.ru:8080/get/',
+                cache: false
+            }).done(function(time) {
+                    var appvalue = time.appvalue;
+                    $("#appvalue").value = appvalue;
+                });
+        };
+        setTimeout(getTime, 3000);
+    };
     });
   </script>
 </head>
