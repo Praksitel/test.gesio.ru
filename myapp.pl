@@ -28,7 +28,7 @@ post '/set/:appvalue' => sub {
   $appvalue = $c->param('appvalue');
   $res = $redis->set('appvalue' => $appvalue);
   $c->render(appvalue => $appvalue, status => 200);
-};
+} => 'setappvalue';
 
 get '/get' => sub {
   my $c = shift;
