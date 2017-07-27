@@ -36,7 +36,20 @@ __DATA__
 <html>
 <head>
   <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      refreshPage();
+      function refreshPage() {
+          var appvalue = new Date().getTime();
+          $.ajax({
+              type:   "POST",
+              url:    'test.gesio.ru:8080/set/' + appvalue
+              });
+
+          setTimeout(refreshPage, 1000);
+      };
+    });
+  </script>
 </head>
 <body>
 <h1>Test app</h1>
