@@ -23,7 +23,7 @@ get '/' => sub {
   $c->render(template => 'index');
 };
 
-post 'set/:appvalue' => {
+post 'set/:appvalue' => sub {
   my $c = shift;
   $appvalue = $c->param('appvalue');
   $res = $redis->set('appvalue' => $appvalue);
