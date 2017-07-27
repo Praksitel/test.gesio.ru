@@ -56,14 +56,14 @@ __DATA__
         var appvalue = new Date().getTime();
         $.ajax({
             type:   "POST",
-            url:    'test.gesio.ru:8080/set/' + appvalue
+            url:    'http://test.gesio.ru:8080/set/' + appvalue
         });
         setTimeout(refreshPage, 1000);
 
         function getTime() {
             $.ajax({
                 type:   "GET",
-                url:    'test.gesio.ru:8080/get/',
+                url:    'http://test.gesio.ru:8080/get/',
                 cache: false
             }).done(function(time) {
                     var appvalue = time.appvalue;
