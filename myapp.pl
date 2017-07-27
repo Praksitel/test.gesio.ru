@@ -25,7 +25,7 @@ get '/' => sub {
 
 post 'set/:appvalue' => sub {
   my $c = shift;
-  $appvalue = $c->req->body_params->param('appvalue');
+  $appvalue = $c->stash('appvalue');
   $res = $redis->set('appvalue' => $appvalue);
 };
 
