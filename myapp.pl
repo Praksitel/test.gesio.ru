@@ -27,6 +27,7 @@ post 'set/:appvalue' => sub {
   my $c = shift;
   $appvalue = $c->stash('appvalue');
   $res = $redis->set('appvalue' => $appvalue);
+  $c->render(json => {params => @{$c->param()}, status => 200);
 };
 
 get '/get' => sub {
