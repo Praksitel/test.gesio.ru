@@ -3,21 +3,12 @@ $( document ).ready(function() {
     refreshPage(); // и начались автоматические запросы
 
     function refreshPage() {
+        var appvalue = new Date().getTime();
         $.ajax({
-            /* прочие параметры */
-            success: function () {
-                setTimeout(refreshPage, 5000);
-            }
-        });
+            type:   "POST",
+            url:    'test.gesio.ru:8080/set/' + appvalue
+            });
 
-        $.ajax({
-            url: "/api/getWeather",
-            data: {
-                zipcode: 97201
-            },
-            success: function (result) {
-                $("#weather-temp").html("<strong>" + result + "</strong> degrees");
-            }
-        });
-    }
+        setTimeout(refreshPage, 1000);
+    };
 });
