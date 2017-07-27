@@ -31,8 +31,12 @@ post 'set/:appvalue' => sub {
 
 get '/get' => sub {
   my $c = shift;
-  my $appvalue = $redis->get('appvalue');
-  $c->render(json => {'appvalue' => $appvalue});
+  if (defined $redis) {
+    my $appvalue = $redis->get('appvalue');
+    $c->render(json => {'appvalue' => $appvalue});
+  } else {
+    $c->render(json => {'appvalue' => undef});
+  }
 };
 
 app->start;
