@@ -77,7 +77,6 @@ __DATA__
 </head>
 <body>
 <h1>Test app</h1>
-<div>Redis res: <span id="res"><%= $res %></span></div>
 <div>Mode: <span id="appmode"><%= $appmode %></span></div>
 <div>Value: <span id="appvalue"><%= $appvalue %></span></div>
 </body>
